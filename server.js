@@ -1,14 +1,14 @@
 const compression = require("compression");
 const express = require("express");
 const ejs = require("ejs");
-const bodyparser = require("bodyparser");
+const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 
 const app = express();
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === "PRD";
 const PORT = process.env.PORT || 3000;
 
 // setup static files
