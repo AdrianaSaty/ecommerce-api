@@ -5,9 +5,6 @@ const user = require("../../../models/user");
 
 const userController = new UserController();
 
-router.get("/", auth.required, userController.index);
-router.get("/:id", auth.required, userController.show);
-
 router.post("/login", userController.login);
 router.post("/register", userController.store);
 router.post("/", auth.required, userController.update);
@@ -17,5 +14,8 @@ router.get("/recover-password", userController.showRecovery);
 router.post("/recover-password", userController.createRecovery);
 router.get("/recovered-password", userController.showCompleteRecovery);
 router.post("/recovered-password", userController.completeRecovery);
+
+router.get("/", auth.required, userController.index);
+router.get("/:id", auth.required, userController.show);
 
 module.exports = router;

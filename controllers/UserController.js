@@ -31,7 +31,7 @@ class UserController {
     store(req, res, next) {
         const {nome, email, password} = req.body;
         if( !nome || !email || !password ) return res.status(422).json({ errors: "Preencha todos os campos"});
-        
+
         const user = new User({ nome, email });
         user.setSenha(password);
 
@@ -128,3 +128,5 @@ class UserController {
         })
     }
 }
+
+module.exports = UserController;

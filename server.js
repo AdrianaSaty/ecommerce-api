@@ -16,12 +16,12 @@ app.use("/public", express.static(__dirname + "/public"));
 app.use("/public/images", express.static(__dirname + "/public/images"));
 
 // setup mongoDB
-// const dbs = require("./config/database");
-// const dbURI = isProduction ? dbs.dbProduction : dbs.dbTest;
-// mongoose.connect(dbURI, { useNewUrlParser: true});
+const dbs = require("./config/database");
+const dbURI = isProduction ? dbs.dbProduction : dbs.dbTest;
+mongoose.connect(dbURI, { useNewUrlParser: true});
 
 //setup ejs (pacote de visualização)
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 // config
 if(!isProduction) app.use(morgan("dev"));
