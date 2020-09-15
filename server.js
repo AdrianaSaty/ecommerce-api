@@ -14,17 +14,18 @@ const app = express();
 const isProduction = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT || 3000;
 
-// setup static files
-app.use("/public", express.static(__dirname + "/public"));
-app.use("/public/images", express.static(__dirname + "/public/images"));
-
 // setup mongoDB
 const dbs = require("./config/database");
 const dbURI = isProduction ? dbs.dbProduction : dbs.dbTest;
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
-//s etup ejs (pacote de visualização)
-app.set("view engine", "ejs");
+// setup ejs (pacote de visualização)
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded());
+
+// setup static files
+app.use("/public", express.static(__dirname + "/public"));
+app.use("/public/images", express.static(__dirname + "/public/images"));
 
 // config
 if(!isProduction) app.use(morgan("dev"));

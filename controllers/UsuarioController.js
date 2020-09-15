@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Usuario = mongoose.model("Usuario");
-const enviarEmailRecovery = require("../helpers/email-recovery");
 
 class UsuarioController {
 
@@ -82,7 +81,7 @@ class UsuarioController {
 
     // GET /recuperar-senha
     showRecovery(req, res, next){
-        return res.render('recovery', { error: null, success: null });
+        return res.render('recovery/index', { error: null, success: null });
     }
 
     // POST /recuperar-senha
