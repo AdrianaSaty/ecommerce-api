@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Usuario = mongoose.model("Usuario");
+const enviarEmailRecovery = require("../helpers/email-recovery");
 
 class UsuarioController {
 
@@ -94,8 +95,9 @@ class UsuarioController {
             const recoveryData = usuario.criarTokenRecuperacaoSenha();
             return usuario.save().then(() => {
                 enviarEmailRecovery({ usuario, recovery: recoveryData }, (error = null, success = null) => {
+                    enviarEmailRecovery({ usuario, recovery: recoveryData}, ( error = null, success = null));
                     return res.render("recovery", { error, success });
-                });
+                }).catch(next);
             }).catch(next);
         }).catch(next);
     }
