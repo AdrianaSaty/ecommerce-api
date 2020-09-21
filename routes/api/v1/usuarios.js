@@ -2,8 +2,6 @@ const router = require("express").Router();
 const auth = require("../../auth");
 const UsuarioController = require("../../../controllers/UsuarioController");
 
-const usuario = require("../../../models/usuario");
-
 const usuarioController = new UsuarioController();
 
 router.post("/login", usuarioController.login);
