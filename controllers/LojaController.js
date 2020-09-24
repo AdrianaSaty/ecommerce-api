@@ -44,11 +44,12 @@ class LojaController {
                 if (email) loja.email = email;
                 if (telefones) loja.telefones = telefones;
                 if (endereco) loja.endereco = endereco;
-            })
-            .catch(next);
-        loja.save()
-            .then(() => res.send({ loja }))
-            .catch(next)
+                loja.save()
+                    .then(() => res.send({ loja }))
+                    .catch(next)
+                })
+                .catch(next);
+
     }
 
     // DELETE /:id

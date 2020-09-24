@@ -1,0 +1,14 @@
+----> adicionar dados de loja para usuario: <----
+
+db.usuarios.update(
+    {"_id" : ObjectId("5f6584f8f341fb96d2c8fedf")},
+    {$set:{
+        "permissao" : ["cliente","admin"],
+        "nome" : "teste",
+        "email" : "dsa@dsa.com",
+        "loja" : ObjectId("5f6be6e425d8f3022347689f"),
+    }}
+)
+
+
+---->  <----

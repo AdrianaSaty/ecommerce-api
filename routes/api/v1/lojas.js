@@ -10,7 +10,7 @@ router.get("/", lojaController.index);
 router.get("/:id", lojaController.show);
 
 router.post("/", auth.required, lojaController.store);
-// router.put("/:id", auth.required, lojaValidation, lojaController.update);
-// router.delete("/:id", auth.required, lojaValidation, lojaController.remove);
+router.put("/:id", auth.required, lojaValidation, lojaController.update);
+router.delete("/:id", auth.required, lojaValidation, lojaController.remove);
 
 module.exports = router;
